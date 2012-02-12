@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>Finite Math Calculator - Finite Help</title>
+	<style type="text/css">
+	body {
+		background: #DFD9BD;
+	}
+	#calc-wrapper { width: 310px; margin: 15px auto 0; }
+	</style>
+	<script type="text/javascript">
+	window.onload = function()
+	{
+		document.getElementById('calculate-p').onclick = doPerm;
+		document.getElementById('calculate-c').onclick = doComb;
+	}
+	Math.factorial = function(n)
+	{
+	    var n = Number(n);
+	
+	    if (isNaN(n)) {
+	        alert("Factorial requires a numeric argument.");
+	        return null;
+	    } else if (n < 2) {
+	        return 1;
+	    } else {
+	        return (n * Math.factorial(n - 1));
+	    }
+	}
+	function doComb() {
+		var n = document.combination.T1.value,
+				r = document.combination.T2.value;
+		document.combination.T3.value = Math.factorial(n) / (Math.factorial(r) * Math.factorial(n - r));
+	}
+	function doPerm() {
+		var n = document.permutation.T1.value,
+				r = document.permutation.T2.value;
+		document.permutation.T3.value = Math.factorial(n) / Math.factorial(n - r);
+	}
+	</script>
+</head>
+
+<body>
+	<div id="calc-wrapper">
+	<div id="calc-header">
+		<img src="http://finitehelp.com/wp-content/uploads/calculator.png" alt="finite help" />
+	</div>
+	<div id="form-area">
+	<form class="form" name="permutation" action="">
+		<p>
+			P (
+			<input type="text" id="P1" value="n" name="T1" size="1" onfocus="this.value = '' " />
+			,
+			<input type="text" id="P2" value="r" name="T2" size="1" onfocus="this.value = '' " />
+			 )
+			<input type="button" id="calculate-p" value="calculate" />
+			= 
+			<input type="text" name="T3" size="12" readonly />
+		</p>
+	</form>
+	<form class="form" name="combination" action="">
+		<p>
+			C (
+			<input type="text" id="C1" value="n" name="T1" size="1" onfocus="this.value = '' " />
+			,
+			<input type="text" id="C2" value="r" name="T2" size="1" onfocus="this.value = '' " />
+			)
+			<input type="button" id="calculate-c" value="calculate" />
+			= 
+			<input type="text" name="T3" size="12" readonly />
+		</p>
+	</form>
+	</div>
+	</div><!-- end #calc-wrapper -->
+</body>
+</html>
