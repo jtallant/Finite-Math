@@ -2,55 +2,8 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title>Combination &amp; Permutation Calculator</title>
-	<style type="text/css">
-	body { background: #DFD9BD; }
-	#calc-wrapper { width: 310px; margin: 15px auto 0; }
-	h1 { font-size: 16px; text-shadow: 1px 1px #f4f4f4; font-family: 'Myriad Pro', arial, sans-serif; }
-	</style>
-	<script type="text/javascript">
-	var type, n, r, formula;
-	Math.factorial = function (n) {
-		if (n < 2) {
-			return 1;
-		}
-		return (n * Math.factorial(n - 1));
-	}
-
-	function doCalc(type) {
-		switch (type) {
-			case 'permutation':
-				n = document.permutation.T1.value;
-				r = document.permutation.T2.value;
-				formula = function() {
-					document.permutation.T3.value = Math.factorial(n) / Math.factorial(n - r);
-				}
-				break;
-			case 'combination':
-				n = document.combination.T1.value;
-				r = document.combination.T2.value;
-				formula = function() {
-					document.combination.T3.value = Math.factorial(n) / (Math.factorial(r) * Math.factorial(n - r));
-				}
-				break;
-		}
-		n = Number(n);
-		r = Number(r);
-		if (isNaN(n) || isNaN(r)) {
-			alert("Factorial requires a numberic argument.");
-			return null;
-		}
-		formula();
-	}
-
-	window.onload = function() {
-		document.getElementById('calculate-p').onclick = function() {
-			doCalc('permutation');
-		}
-		document.getElementById('calculate-c').onclick = function() {
-			doCalc('combination');
-		}
-	}
-	</script>
+	<link rel="stylesheet" href="style.css">
+	<script src="calculator.js"></script>
 </head>
 
 <body>
@@ -58,32 +11,32 @@
 		<div id="calc-header">
 			<h1>Combination &amp; Permutation Calculator</h1>
 		</div>
-		<div id="form-area">
-		<form class="form" name="permutation" action="">
-			<p>
-				P (
-				<input type="text" id="P1" value="n" name="T1" size="1" onfocus="this.value = '' " />
-				,
-				<input type="text" id="P2" value="r" name="T2" size="1" onfocus="this.value = '' " />
-				 )
-				<input type="button" id="calculate-p" value="calculate" />
-				=
-				<input type="text" name="T3" size="12" readonly />
-			</p>
-		</form>
-		<form class="form" name="combination" action="">
-			<p>
-				C (
-				<input type="text" id="C1" value="n" name="T1" size="1" onfocus="this.value = '' " />
-				,
-				<input type="text" id="C2" value="r" name="T2" size="1" onfocus="this.value = '' " />
-				)
-				<input type="button" id="calculate-c" value="calculate" />
-				=
-				<input type="text" name="T3" size="12" readonly />
-			</p>
-		</form>
-		</div>
-	</div><!-- end #calc-wrapper -->
+		<div id="form-wrapper">
+			<form class="form" name="permutation" action="">
+				<p>
+					P (
+					<input type="text" id="P1" value="n" name="T1" size="1" onfocus="this.value = '' " />
+					,
+					<input type="text" id="P2" value="r" name="T2" size="1" onfocus="this.value = '' " />
+					 )
+					<input type="button" id="calculate-p" value="calculate" />
+					=
+					<input type="text" name="T3" size="12" readonly />
+				</p>
+			</form>
+			<form class="form" name="combination" action="">
+				<p>
+					C (
+					<input type="text" id="C1" value="n" name="T1" size="1" onfocus="this.value = '' " />
+					,
+					<input type="text" id="C2" value="r" name="T2" size="1" onfocus="this.value = '' " />
+					)
+					<input type="button" id="calculate-c" value="calculate" />
+					=
+					<input type="text" name="T3" size="12" readonly />
+				</p>
+			</form>
+		</div> <!-- #form-wrapper -->
+	</div> <!-- #calc-wrapper -->
 </body>
 </html>

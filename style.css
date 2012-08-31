@@ -1,0 +1,14 @@
+body {
+	background: #DFD9BD;
+}
+
+#calc-wrapper {
+	width: 310px;
+	margin: 15px auto 0;
+}
+
+h1 {
+	font-size: 16px;
+	text-shadow: 1px 1px rgba(255,255,255,0.5);
+	font-family: 'Myriad Pro', arial, sans-serif;
+}
