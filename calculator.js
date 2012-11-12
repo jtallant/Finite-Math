@@ -15,7 +15,7 @@ function doCalc(type) {
 	var r = form.T2.value;
 
 	if ( isNaN(n) || isNaN(r) ) {
-		alert("Factorial requires a numberic argument.");
+		alert("Factorial requires a numeric argument.");
 		return null;
 	}
 
